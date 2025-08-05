@@ -1,0 +1,1 @@
+export const refs = { taskForm: document.querySelector('#task-form')};
