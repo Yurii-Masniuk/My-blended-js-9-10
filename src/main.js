@@ -1,20 +1,16 @@
-import { onTaskFormSubmit } from "./js/handlers";
+import { onTaskFormSubmit, onTaskDelete } from "./js/handlers";
 import { refs } from "./js/refs";
+import { loadTasks } from "./js/local-storage-api";
+import { renderTask } from "./js/render-tasks";
+import { toggleTheme, initTheme } from "./js/theme-switcher";
 
-/*
-  Створи список справ.
-  На сторінці є два інпути які має вводиться назва і текст задачі.
-  Після натискання на кнопку "Add" завдання додається до списку #task-list.
+refs.taskForm.addEventListener('submit', onTaskFormSubmit);
+refs.taskList.addEventListener('click', onTaskDelete);
+refs.themeToggleBtn.addEventListener('click', toggleTheme);
 
-  У кожної картки має бути кнопка "Delete", щоб можна було
-  прибрати завдання зі списку.
-  Список із завданнями має бути доступним після перезавантаження сторінки.
+const tasks = loadTasks();
+tasks.forEach(renderTask);
 
-  Розмітка картки задачі
-  <li class="task-list-item">
-      <button class="task-list-item-btn">Delete</button>
-      <h3>Заголовок</h3>
-      <p>Текст</p>
-  </li>
-*/
+initTheme();
+
 refs.taskForm.addEventListener('submit', onTaskFormSubmit);

@@ -1,1 +1,5 @@
-export const refs = { taskForm: document.querySelector('#task-form')};
+export const refs = {
+  taskForm: document.querySelector('#task-form'),
+  taskList: document.querySelector('#task-list'),
+  themeToggleBtn: document.querySelector('#themeToggle'),
+};
